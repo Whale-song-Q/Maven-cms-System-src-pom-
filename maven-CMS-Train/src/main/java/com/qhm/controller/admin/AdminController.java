@@ -11,5 +11,18 @@ public class AdminController {
 	public String login() {
 		return "admin/login";
 	}
-
+	@RequestMapping("/home")
+	public String home() {
+		return "admin/home";
+	}
+	
+	@RequestMapping("/welcome")
+	public String welcome() {
+		return "admin/welcome";
+	}
+	
+	@RequestMapping("/user")
+	public String user() {
+		return "admin/user";
+	}
 }
