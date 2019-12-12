@@ -1,45 +1,35 @@
 package com.qhm.pojo;
-/** 
 
-* @author 作者 QHM: 
+import java.io.Serializable;
 
-* @version 创建时间：2019年12月11日 下午2:19:30 
-
-* 类说明 
-
-*/
-public class Tag {
+public class Tag  implements Serializable{
+    /**   
+	 * @Fields serialVersionUID : TODO(这个变量表示什么)   
+	 */  
+	private static final long serialVersionUID = 1L;
 
 	private Integer id;
-	//标签
-	private String tagname;
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getTagname() {
-		return tagname;
-	}
-	public void setTagname(String tagname) {
-		this.tagname = tagname;
-	}
-	@Override
+
+    private String tagname;
+    
+    @Override
 	public String toString() {
 		return "Tag [id=" + id + ", tagname=" + tagname + "]";
 	}
-	public Tag() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Tag(Integer id, String tagname) {
-		super();
-		this.id = id;
-		this.tagname = tagname;
-	}
-	
-	
-	
-	
+
+	public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTagname() {
+        return tagname;
+    }
+
+    public void setTagname(String tagname) {
+        this.tagname = tagname == null ? null : tagname.trim();
+    }
 }

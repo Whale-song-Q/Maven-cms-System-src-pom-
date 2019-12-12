@@ -1,73 +1,55 @@
 package com.qhm.pojo;
-/** 
 
-* @author 作者 QHM: 
+import java.io.Serializable;
 
-* @version 创建时间：2019年12月11日 下午2:29:50 
-
-* 类说明 
-
-*/
-public class Slide {
+public class Slide  implements Serializable{
+    /**   
+	 * @Fields serialVersionUID : TODO(这个变量表示什么)   
+	 */  
+	private static final long serialVersionUID = 1L;
 
 	private Integer id;
- 
-	private String title; 
-	
-	private String picture; 
-	
-	private String url;
 
-	public Integer getId() {
-		return id;
-	}
+    private String title;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    private String picture;
 
-	public String getTitle() {
-		return title;
-	}
+    private String url;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getPicture() {
-		return picture;
-	}
-
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	@Override
+    @Override
 	public String toString() {
 		return "Slide [id=" + id + ", title=" + title + ", picture=" + picture + ", url=" + url + "]";
 	}
 
-	public Slide(Integer id, String title, String picture, String url) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.picture = picture;
-		this.url = url;
-	}
+	public Integer getId() {
+        return id;
+    }
 
-	public Slide() {
-		super();
-		// TODO Auto-generated constructor stub
-	} 
-	
-	
-	
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture == null ? null : picture.trim();
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
+    }
 }

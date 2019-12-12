@@ -9,6 +9,7 @@ import com.qhm.service.UserService;
 public class UserServiceImpl implements UserService {
 
 
+
 	@Override
 	public boolean register(User user) {
 		// TODO Auto-generated method stub
@@ -20,7 +21,24 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+	@Override
+	public boolean locked(Integer userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean unLocked(Integer userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int addScore(Integer userId, int score) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 	
