@@ -24,7 +24,7 @@ public interface UserDao {
 	 * @return: List<User>      
 	 * @throws
 	 */
-	List<User> select(@Param("user") User user);
+	List<User> select(User user);
 	/**
 	 * @Title: count   
 	 * @Description: 查询数据条数   
@@ -70,4 +70,14 @@ public interface UserDao {
 	 * @throws
 	 */
 	int deleteByIds(@Param("ids") String ids);
+	/**
+	 * @Title: updateLocked   
+	 * @Description: 修改locked字段值   
+	 * @param: @param userId
+	 * @param: @param locked
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
+	 */
+	int updateLocked(@Param("userId") Integer userId, @Param("locked")  int locked);
 }

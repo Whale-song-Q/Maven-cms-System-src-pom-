@@ -1,7 +1,13 @@
 package com.qhm.service.impl;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.qhm.dao.UserDao;
 import com.qhm.pojo.User;
 import com.qhm.service.UserService;
 
@@ -9,6 +15,9 @@ import com.qhm.service.UserService;
 public class UserServiceImpl implements UserService {
 
 
+
+	@Autowired
+	private UserDao userDao;
 
 	@Override
 	public boolean register(User user) {
@@ -24,14 +33,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean locked(Integer userId) {
-		// TODO Auto-generated method stub
-		return false;
+		return userDao.updateLocked(userId,1)>0;
 	}
 
 	@Override
 	public boolean unLocked(Integer userId) {
-		// TODO Auto-generated method stub
-		return false;
+		return userDao.updateLocked(userId,0)>0;
 	}
 
 	@Override
@@ -39,7 +46,13 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
+
+	@Override
+	public PageInfo<User> getPageInfo(User user, int pageNum, int pageSize) {
+		PageHelper.startPage(pageNum, pageSize);
+		List<User> userList = userDao.select(user);
+		return new PageInfo<>(userList);
+	}
 	
 	
 }

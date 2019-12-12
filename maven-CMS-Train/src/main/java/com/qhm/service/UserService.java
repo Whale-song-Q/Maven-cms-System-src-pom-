@@ -1,5 +1,6 @@
 package com.qhm.service;
 
+import com.github.pagehelper.PageInfo;
 import com.qhm.pojo.User;
 
 /** 
@@ -58,5 +59,17 @@ public interface UserService {
 	 * @throws
 	 */
 	int addScore(Integer userId,int score);
+	/**
+	 * @Title: getPageInfo   
+	 * @Description: 查询用户列表（PageInfo）   
+	 * @param: @param user
+	 * @param: @param pageNum
+	 * @param: @param pageSize
+	 * @param: @return      
+	 * @return: PageInfo<User>      
+	 * @throws
+	 */
+	PageInfo<User> getPageInfo(User user, int pageNum,
+			int pageSize);
 	
 }
