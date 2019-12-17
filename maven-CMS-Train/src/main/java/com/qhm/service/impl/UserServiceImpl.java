@@ -13,9 +13,7 @@ import com.qhm.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
-
-
-
+	
 	@Autowired
 	private UserDao userDao;
 
@@ -27,8 +25,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDao.selectByUsername(username);
 	}
 
 	@Override
@@ -53,6 +50,5 @@ public class UserServiceImpl implements UserService {
 		List<User> userList = userDao.select(user);
 		return new PageInfo<>(userList);
 	}
-	
 	
 }

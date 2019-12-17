@@ -3,15 +3,6 @@ package com.qhm.service;
 import com.github.pagehelper.PageInfo;
 import com.qhm.pojo.User;
 
-/** 
-
-* @author 作者 QHM: 
-
-* @version 创建时间：2019年12月10日 下午6:42:32 
-
-* 类说明 
-
-*/
 public interface UserService {
 	/**
 	 * @Title: register   
@@ -71,5 +62,6 @@ public interface UserService {
 	 */
 	PageInfo<User> getPageInfo(User user, int pageNum,
 			int pageSize);
+	
 	
 }
