@@ -29,7 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @Description: kindeditor 文件上传管理
- * @author: qhm1002
+ * @author: zhanggm1002
  * @date: 2019年12月12日 下午8:55:16
  */
 @Controller

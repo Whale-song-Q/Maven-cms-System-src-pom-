@@ -8,13 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import com.quhaiming.common.utils.StringUtil;
 import com.qhm.common.CmsConstant;
 import com.qhm.common.CmsMd5Util;
 import com.qhm.common.JsonResult;
 import com.qhm.pojo.User;
 import com.qhm.service.UserService;
-import com.quhaiming.common.utils.StringUtil;
 
 @Controller
 @RequestMapping("/admin/user/")
@@ -48,6 +47,7 @@ public class AdminUserController {
 		}
 		//判断密码
 		String string2md5 = CmsMd5Util.string2MD5(user.getPassword());
+		System.err.println("加密密码"+string2md5);
 		if(string2md5.equals(userInfo.getPassword())) {
 			session.setAttribute(CmsConstant.UserAdminSessionKey, userInfo);
 			return JsonResult.sucess();
