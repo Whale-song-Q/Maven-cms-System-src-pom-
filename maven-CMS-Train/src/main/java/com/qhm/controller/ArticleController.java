@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -20,8 +21,10 @@ import com.qhm.dao.ArticleDao;
 import com.qhm.pojo.Article;
 import com.qhm.pojo.Category;
 import com.qhm.pojo.Channel;
+import com.qhm.pojo.Complain;
 import com.qhm.pojo.User;
 import com.qhm.service.ArticleService;
+import com.qhm.service.ComplainService;
 
 @Controller
 @RequestMapping("/article/")
@@ -104,4 +107,26 @@ public class ArticleController {
 		}
 		return JsonResult.fail(500, "未知错误");
 	}
+	@Autowired
+	ComplainService complainService;
+	
+	@RequestMapping("toToushu")
+	public String toToushu(Integer articleid,Model m){
+		System.err.println("后台跳转接收：articleid="+articleid);
+		m.addAttribute("articleid",articleid);
+		
+		return "article/addComplain";
+		
+	}
+	
+	
+	@RequestMapping("articleComplain")
+	@ResponseBody
+	public Object articleComplain(Complain complain,@RequestParam("carticleid") String articleid) {
+		int articleids=Integer.parseInt(articleid);
+		System.err.println("前台接收投诉对象"+complain+"articleid"+articleids);
+		int i = complainService.insertComplain(complain,articleids);
+		return i;
+	}
+	
 }

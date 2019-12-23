@@ -38,8 +38,19 @@ public class User implements Serializable{
     private Date updateTime;
     
     private String headimg;
+    
+    private String  Mima;
+    
    
-    public boolean isAdmin() {
+    public String getMima() {
+		return Mima;
+	}
+
+	public void setMima(String mima) {
+		Mima = mima;
+	}
+
+	public boolean isAdmin() {
     	return "1".equals(getRole());
     }
     

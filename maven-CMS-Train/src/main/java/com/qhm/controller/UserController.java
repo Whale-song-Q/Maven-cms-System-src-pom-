@@ -2,6 +2,7 @@ package com.qhm.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +18,7 @@ import com.github.pagehelper.PageInfo;
 
 import com.qhm.common.CmsConstant;
 import com.qhm.common.CmsMd5Util;
+import com.qhm.common.CookieUtil;
 import com.qhm.common.JsonResult;
 import com.qhm.pojo.Article;
 import com.qhm.pojo.Channel;
@@ -56,11 +58,12 @@ public class UserController {
 	 */
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	@ResponseBody
-	public Object login(User user,HttpSession session) {
+	public Object login(User user,HttpSession session,HttpServletResponse response) {
 		//判断用户名和密码
 		if(StringUtil.isBlank(user.getUsername()) || StringUtil.isBlank(user.getPassword())) {
 			return JsonResult.fail(1000, "用户名和密码不能为空");
 		}
+		
 		//查询用户
 		User userInfo = userService.getByUsername(user.getUsername());
 		//用户为空
@@ -71,6 +74,14 @@ public class UserController {
 		String string2md5 = CmsMd5Util.string2MD5(user.getPassword());
 		if(string2md5.equals(userInfo.getPassword())) {
 			session.setAttribute(CmsConstant.UserSessionKey, userInfo);
+			//记住密码
+			if("1".equals(user.getMima())){
+				int maxAge=1000*60*60*24;
+				CookieUtil.addCookie(response, "username", user.getUsername(), null, null, maxAge);
+				
+			}
+			
+			
 			return JsonResult.sucess();
 		}
 		return JsonResult.fail(1000, "用户名或密码错误");
@@ -87,6 +98,8 @@ public class UserController {
 	@RequestMapping("logout")
 	public Object logout(HttpServletResponse response,HttpSession session) {
 		session.removeAttribute(CmsConstant.UserSessionKey);
+		CookieUtil.addCookie(response, "username", null, null, null, 0);
+
 		return "redirect:/";
 	}
 	

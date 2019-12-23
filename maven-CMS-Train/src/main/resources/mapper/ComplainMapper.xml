@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qhm.dao.ComplainDao">
+  
+  <insert id="insertComplain">
+  insert into cms_complain values(0,#{complain.some},#{complain.ctype},#{articleids})
+  </insert>
+  
+</mapper>
