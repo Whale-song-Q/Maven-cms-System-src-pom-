@@ -21,10 +21,8 @@ import com.qhm.dao.ArticleDao;
 import com.qhm.pojo.Article;
 import com.qhm.pojo.Category;
 import com.qhm.pojo.Channel;
-import com.qhm.pojo.Complain;
 import com.qhm.pojo.User;
 import com.qhm.service.ArticleService;
-import com.qhm.service.ComplainService;
 
 @Controller
 @RequestMapping("/article/")
@@ -107,7 +105,7 @@ public class ArticleController {
 		}
 		return JsonResult.fail(500, "未知错误");
 	}
-	@Autowired
+	/*@Autowired
 	ComplainService complainService;
 	
 	@RequestMapping("toToushu")
@@ -117,16 +115,16 @@ public class ArticleController {
 		
 		return "article/addComplain";
 		
-	}
+	}*/
 	
 	
-	@RequestMapping("articleComplain")
+/*	@RequestMapping("articleComplain")
 	@ResponseBody
 	public Object articleComplain(Complain complain,@RequestParam("carticleid") String articleid) {
 		int articleids=Integer.parseInt(articleid);
 		System.err.println("前台接收投诉对象"+complain+"articleid"+articleids);
 		int i = complainService.insertComplain(complain,articleids);
 		return i;
-	}
+	}*/
 	
 }

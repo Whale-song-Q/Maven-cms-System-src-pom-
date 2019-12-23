@@ -200,7 +200,22 @@ public class UserController {
 		model.addAttribute("channelList", channelList);
 		return "user/article";
 	}
-	
+	/**
+	 * @Title: isLogin   
+	 * @Description: 验证用户是否登录   
+	 * @param: @param session
+	 * @param: @return      
+	 * @return: Object      
+	 * @throws
+	 */
+	@RequestMapping(value="isLogin",method=RequestMethod.POST)
+	public @ResponseBody Object isLogin(HttpSession session) {
+		Object userInfo = session.getAttribute(CmsConstant.UserSessionKey);
+		if(userInfo!=null) {
+			return JsonResult.sucess();
+		}
+		return JsonResult.fail(CmsConstant.unLoginErrorCode, "未登录");
+	}
 	
 	
 	
