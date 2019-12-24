@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.qhm.pojo.Article;
 
-public interface ArticleDao {
+public interface ArticleDao { 
 	/**
 	 * @Title: selectById   
 	 * @Description: 根据Id，查询对象   

@@ -3,7 +3,7 @@ package com.qhm.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Article implements Serializable{
+public class Article implements Serializable{ 
 	
     /**   
 	 * @Fields serialVersionUID : TODO(这个变量表示什么)   

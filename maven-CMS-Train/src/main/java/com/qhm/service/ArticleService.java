@@ -8,7 +8,7 @@ import com.qhm.pojo.Category;
 import com.qhm.pojo.Channel;
 import com.qhm.pojo.User;
 
-public interface ArticleService {
+public interface ArticleService { 
 	/**
 	 * @Title: getPageInfo   
 	 * @Description: 分页列表   
