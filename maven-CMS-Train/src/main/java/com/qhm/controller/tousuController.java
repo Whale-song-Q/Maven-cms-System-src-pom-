@@ -17,7 +17,7 @@ import com.qhm.service.TousuService;
 
 @Controller
 @RequestMapping("/tousu/")
-public class TousuController {
+public class tousuController {
 	@Autowired
 	private TousuService tousuService;
 	/**
@@ -30,7 +30,7 @@ public class TousuController {
 	 */
 	@RequestMapping(value="add",method=RequestMethod.POST)
 	public @ResponseBody JsonResult add(Tousu tousu,HttpSession session) {
-		/*User userInfo = (User)session.getAttribute(CmsConstant.UserSessionKey);
+		User userInfo = (User)session.getAttribute(CmsConstant.UserSessionKey);
 		if(userInfo==null) {
 			return JsonResult.fail(CmsConstant.unLoginErrorCode, "用户未登录");
 		}
@@ -41,7 +41,6 @@ public class TousuController {
 		if(result) {
 			return JsonResult.sucess();
 		}
-		return JsonResult.fail(10000, "未知错误");*/
-		return null;
+		return JsonResult.fail(10000, "未知错误");
 	}
 }

@@ -39,7 +39,7 @@
       <th scope="col">标题</th>
       <th scope="col">所属频道</th>
       <th scope="col">所属分类</th>
-      <th scope="col">投诉数量</th>
+      <th scope="col"></th>
       <th scope="col">是否热点</th>
       <th scope="col">审核状态</th>
       <th scope="col">发布时间</th>

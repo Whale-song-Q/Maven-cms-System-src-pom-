@@ -45,12 +45,7 @@
 				<div style="margin-top: 10px;margin-bottom: 10px;font-weight: bold;color: #777;">
 					<span>${user.nickname }</span> 
 					<span><fmt:formatDate value="${article.created}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
-					<!-- <span style="font-size: 24px;color: red;" onclick="tousuShow();">ts</span> -->
-				<!-- 头投诉按钮 -->
-<!-- 				  <div style="margin-top: 10px;">
-				    <button type="button" class="btn btn-primary" onclick="addComplain();">投诉该文章</button>
-				  </div> -->
-				 
+					 <span style="font-size: 24px;color: red;" onclick="tousuShow();"></span> 
 				</div>
 				<div style="font-size: 24">
 					${article.content }
@@ -138,37 +133,37 @@
 				}
 			})
 		}
-		/* function addComplain() {
+      function addComplain() {
 			console.log("${id}");
 			open("/article/toToushu?articleid=${id}");
-		} */
-/* 		function tousuShow() {
+		} 
+ 		function tousuShow() {
 			$.post("/user/isLogin",null,function(res){
 				if(res.result){
 					
 					$("#tousuModal").modal('show');
 				}else{
-					alert("未登录，请登录后在投诉");
+					alert("未登录，请登录");
 					window.location.href="/user/login";	
 				}
 			
 				
 			})	
-		} */
-/* 		function touhsu() {
+		} 
+ 		function touhsu() {
 			var content=$("#content1").val();
 			$.post("/tousu/add",{content:content,articleId:articleId},function(res){
 				if(res.result){
-					alert("投诉成功");
+					alert("");
 					$("#tousuModal").modal('hide');
 				}else{
-					alert("投诉失败");
+					alert("");
 				}
 			})
 			
 			
 			
-		} */
+		} 
 		
 	</script>
 </body>
